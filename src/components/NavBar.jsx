@@ -6,7 +6,7 @@ const NavBar = () => {
     <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-warning mb-4" >
             <div className="container-fluid">
-                <NavLink className="navbar-brand" to="/">Bienvenido</NavLink>
+                <NavLink className="navbar-brand" to="/"> <img className='imgPokemon' alt="pokemon logo" src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png'></img> Bienvenido</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

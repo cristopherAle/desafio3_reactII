@@ -1,43 +1,45 @@
-import userEvent from '@testing-library/user-event'
-import React from 'react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MyContext } from '../context/MyContext'
-import ListPokemon from '../pages/ListPokemon'
+
+
+
 const PokePage = () => {
 
-const {dataPoke, setDataPoke} = useContext(MyContext)
-
+const {dataPoke} = useContext(MyContext)
+const [pokeNombre, setPokeNombre] = useState('')
+//console.log(pokeNombre)
 const navigate = useNavigate()
-  
- const prueba =()=>{
-    navigate(`listPokemon/${dataPoke.id}`)
-  //console.log(dataPoke.id)
-    //console.log('Me diste clic', dataPoke.id)
-  }  
-    return (
+
+
+const verPokemon = (e) => {
+  e.preventDefault();
+  navigate(`/listPokemon/${pokeNombre}`);
+};
+
+ return (
     <div className='container'>
-        <h1>Selecciona un Pokemón</h1>
+      <h1>Selecciona un Pokemón</h1>
         <hr />
-      <div className='cboPokemon'>
-          <div className="dropdown">
+     
+
+      <div className='container'>
+          <div className="dropdown" id="dropPoke">
             <button  className="btn btn-secondary btn-lg dropdown-toggle dropdown-toggle-split" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Pokemones 
+             Seleccione
             </button>
             <ul className="dropdown-menu">
-              {dataPoke.map(Poke=><li onClick={prueba}         
-              key={Poke.id}><a className='dropdown-item'>{Poke.name}</a></li>)}
+              {dataPoke.map(Poke=><li 
+              key={Poke.id}><button className='dropdown-item' onClick={({ target }) =>(setPokeNombre(target.value))} value ={Poke.name}>{Poke.name} </button></li>)}
               
             </ul>
           </div>
-      </div>
-      <hr />
-      <div>
-        <ListPokemon />
-      </div>
+          <hr/>
+          <hr/>
+          <button onClick={verPokemon}>Ver Pokemon</button>
+        </div>  
 
-</div>
+    </div>
   )
 }
-
 export default PokePage

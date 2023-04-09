@@ -12,7 +12,7 @@ const AppRouter = () => {
             <Route path='/' element={<HomePage/>}/>
             <Route path='home' element={<HomePage/>}/>
             <Route path='pokepage' element={<PokePage/>}/>
-            <Route path='listPokemon/:id' element={<ListPokemon/>}/>
+            <Route path='listPokemon/:name' element={<ListPokemon/>}/>
             <Route path='*' element={<NotFound/>}/> 
           </Routes>
     </div>

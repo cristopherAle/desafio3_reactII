@@ -45,3 +45,8 @@ a{
   place-content: center;
   background-color: blue;
 }
+
+.imgPokemon{
+  height: 64px;
+  width: auto;
+}
